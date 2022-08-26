@@ -8,9 +8,6 @@ public class DialogueSystem : MonoBehaviour
     public Text nameText;
     public Text dialogueText;
     public CustomBullet customBullet;
-    public GameObject gunContainer;
-    private ProjectileGun equippedGun;
-    public GameObject npc;
 
     public GameObject dialogueGUI;
     public Transform dialogueBoxGUI;
@@ -36,11 +33,6 @@ public class DialogueSystem : MonoBehaviour
     {
         audioSource = GetComponent<AudioSource>();
         dialogueText.text = "";
-    }
-
-    void Update()
-    {
-
     }
 
     public void EnterRangeOfNPC()
@@ -86,29 +78,6 @@ public class DialogueSystem : MonoBehaviour
                     if (currentDialogueIndex >= dialogueLength)
                     {
                         dialogueEnded = true;
-                        equippedGun = gunContainer.GetComponentInChildren<ProjectileGun>();
-
-                        if (equippedGun == null)
-                        {
-                            Debug.Log("Nenhuma arma equipada!");
-                        }
-                        else
-                        {
-                            if (npc.tag == "Shock")
-                            {
-                                equippedGun.timeBetweenShooting -= 0.5f;
-
-                                if (equippedGun.timeBetweenShooting <= 0)
-                                {
-                                    equippedGun.timeBetweenShooting = 0.01f;
-                                }
-                            }
-
-                            if (npc.tag == "Water")
-                            {
-                                equippedGun.spreadAngle += 50;
-                            }
-                        }
                     }
                 }
                 yield return 0;

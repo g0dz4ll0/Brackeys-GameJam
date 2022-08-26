@@ -18,11 +18,11 @@ public class WaveSpawner : MonoBehaviour
     public Transform[] spawnPoints;
     public Animator animator;
     public Text waveName;
-    public GameObject NPC;
 
     private Wave currentWave;
     private int currentWaveNumber;
     private float nextSpawnTime;
+    public GameObject followerGameObject;
 
     private bool canSpawn = true;
     private bool canAnimate = false;
@@ -46,7 +46,9 @@ public class WaveSpawner : MonoBehaviour
             else
             {
                 Debug.Log("Room Finished!");
-                NPC.SetActive(true);
+                followerGameObject.SetActive(true);
+                this.enabled = false;
+
             }
         }
     }

@@ -7,6 +7,7 @@ public class ProjectileGun : MonoBehaviour
     //bala
     [Header("Balas")]
     public GameObject bullet;
+    public CustomBullet bulletScript;
 
     //força da bala
     public float shootForce, upwardForce;
@@ -48,7 +49,7 @@ public class ProjectileGun : MonoBehaviour
 
     private void Update()
     {
-        MyInput();      
+        MyInput();    
     }
 
     private void MyInput()

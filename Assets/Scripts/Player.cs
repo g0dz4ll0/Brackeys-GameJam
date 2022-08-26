@@ -45,8 +45,16 @@ public class Player : MonoBehaviour
     void Update()
     {
         //Jogador a olhar para o cursor
+        PlayerLook();
+
+        //Movimento do jogador
+        PlayerMovement();
+    }
+
+    private void PlayerLook()
+    {
         Plane playerPlane = new Plane(Vector3.up, playerObj.transform.position);
-        Ray ray = UnityEngine.Camera.main.ScreenPointToRay(Input.mousePosition);
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         float hitDist = 0.0f;
 
         if(playerPlane.Raycast(ray, out hitDist))
@@ -57,8 +65,10 @@ public class Player : MonoBehaviour
             targetRotation.z = 0;
             playerObj.transform.rotation = Quaternion.Slerp(playerObj.transform.rotation, targetRotation, 7f * Time.deltaTime);
         }
+    }
 
-        //Movimento do jogador
+    private void PlayerMovement()
+    {
         movement.x = Input.GetAxisRaw("Horizontal");
         movement.z = Input.GetAxisRaw("Vertical");
 

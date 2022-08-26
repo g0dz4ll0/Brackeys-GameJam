@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 959431925516919073}
   - component: {fileID: 6771750975058746577}
   m_Layer: 7
-  m_Name: AKBullet
+  m_Name: PetBullet
   m_TagString: Bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -63,7 +63,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: ea9ba5a2bcaceae4199e668dbcedb333, type: 2}
+  - {fileID: 2100000, guid: 2b11cfd7a7a06f2418d0fa3967795747, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -132,12 +132,12 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   bounciness: 0
-  useGravity: 1
+  useGravity: 0
   isEnemyBullet: 0
   explosionDamage: 25
   explosionRange: 1
-  maxCollisions: 1
-  maxLifeTime: 5
+  maxCollisions: 0
+  maxLifeTime: 4
   explodeOnTouch: 1
 --- !u!96 &6771750975058746577
 TrailRenderer:
@@ -210,8 +210,8 @@ TrailRenderer:
       m_RotationOrder: 4
     colorGradient:
       serializedVersion: 2
-      key0: {r: 0, g: 0.11260891, b: 1, a: 1}
-      key1: {r: 0.24056602, g: 0.78895533, b: 1, a: 1}
+      key0: {r: 0.9528302, g: 0.5618047, b: 0, a: 1}
+      key1: {r: 0.8113208, g: 0.70186424, b: 0, a: 1}
       key2: {r: 0, g: 0, b: 0, a: 0}
       key3: {r: 0, g: 0, b: 0, a: 0}
       key4: {r: 0, g: 0, b: 0, a: 0}

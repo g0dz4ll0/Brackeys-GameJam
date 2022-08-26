@@ -13,10 +13,10 @@ GameObject:
   - component: {fileID: 3008947945282690909}
   - component: {fileID: 3457821744302795695}
   - component: {fileID: 8889206805418851327}
-  - component: {fileID: 959431925516919073}
   - component: {fileID: 6771750975058746577}
+  - component: {fileID: 8989483607157340341}
   m_Layer: 7
-  m_Name: AKBullet
+  m_Name: HomingMissile
   m_TagString: Bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -114,31 +114,6 @@ Rigidbody:
   m_Interpolate: 1
   m_Constraints: 0
   m_CollisionDetection: 1
---- !u!114 &959431925516919073
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2074461828003215704}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9f06f4375d0daac4ab39a2492cf7440c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rb: {fileID: 8889206805418851327}
-  explosion: {fileID: 3108890519612156201, guid: 63150429546d7434baae312010075be8, type: 3}
-  whatIsEnemies:
-    serializedVersion: 2
-    m_Bits: 64
-  bounciness: 0
-  useGravity: 1
-  isEnemyBullet: 0
-  explosionDamage: 25
-  explosionRange: 1
-  maxCollisions: 1
-  maxLifeTime: 5
-  explodeOnTouch: 1
 --- !u!96 &6771750975058746577
 TrailRenderer:
   serializedVersion: 2
@@ -246,3 +221,19 @@ TrailRenderer:
   m_MinVertexDistance: 0.1
   m_Autodestruct: 0
   m_Emitting: 1
+--- !u!114 &8989483607157340341
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2074461828003215704}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac170819f245e2e4498baf04810f0b68, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  missileTarget: {fileID: 0}
+  missileRigidbody: {fileID: 8889206805418851327}
+  turn: 1
+  missileVelocity: 40

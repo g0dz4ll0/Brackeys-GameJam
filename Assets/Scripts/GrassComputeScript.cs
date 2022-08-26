@@ -38,6 +38,7 @@ public class GrassComputeScript : MonoBehaviour
     public float windSpeed = 10;
     public float windStrength = 0.05f;
     // Interactor
+    [Header("Interactor")]
     public float affectRadius = 1.5f;
     public float affectStrength = 1;
     // LOD

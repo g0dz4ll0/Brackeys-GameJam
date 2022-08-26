@@ -5,6 +5,11 @@ using UnityEngine.AI;
 
 public class NPCFollow : MonoBehaviour
 {
+    //Referências
+    [Header("Referências")]
+    public GameObject followerGameObject;
+    public Transform npcFollow;
+
     //Variáveis para seguir
     [Header("Variáveis Para Seguir")]
     public NavMeshAgent agent;
@@ -41,16 +46,26 @@ public class NPCFollow : MonoBehaviour
 
     private void Update()
     {
+        StartNPC();
+    }
+
+    public void StartNPC()
+    {
         if (dialogueSystem.dialogueEnded)
+        {
             isFollowing = true;
+            npcFollow.transform.parent = null;
+            followerGameObject.SetActive(false);
+        }
 
         if (isFollowing)
         {
             agent.SetDestination(player.position);
+            this.gameObject.GetComponent<NPC>().enabled = false;
+        }
 
             if (target != null)
                 Attack();
-        }
     }
 
     private void Attack()

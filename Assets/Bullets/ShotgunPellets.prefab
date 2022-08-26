@@ -134,11 +134,11 @@ MonoBehaviour:
   bounciness: 0.8
   useGravity: 1
   isEnemyBullet: 0
-  explosionDamage: 100
+  explosionDamage: 25
   explosionRange: 1
-  maxCollisions: 4
+  maxCollisions: 3
   maxLifeTime: 4
-  explodeOnTouch: 1
+  explodeOnTouch: 0
 --- !u!96 &6771750975058746577
 TrailRenderer:
   serializedVersion: 2

@@ -160,10 +160,10 @@ MonoBehaviour:
   whatIsPlayer:
     serializedVersion: 2
     m_Bits: 256
-  health: 120
+  health: 50
   walkPoint: {x: 0, y: 0, z: 0}
   walkPointRange: 0
-  timeBetweenAttacks: 1
+  timeBetweenAttacks: 0.5
   projectile: {fileID: 2074461828003215704, guid: 1db78042769db034bb645ce8f8317793, type: 3}
   forwardForce: 32
   upwardForce: 0
