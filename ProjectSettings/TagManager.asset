@@ -10,6 +10,7 @@ TagManager:
   - Water
   - Shock
   - Floor
+  - WaterShield
   layers:
   - Default
   - TransparentFX

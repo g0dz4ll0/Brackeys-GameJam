@@ -51,10 +51,13 @@ public class CustomBullet : MonoBehaviour
         //Instanciar a explosão
         if (explosion != null) Instantiate(explosion, transform.position, Quaternion.identity);
 
+        
         //Verificar personagens e aplicar o dano
         Collider[] characters = Physics.OverlapSphere(transform.position, explosionRange, whatIsEnemies);
         for (int i = 0; i < characters.Length; i++)
         {
+            
+
             if (characters[i].tag == "Enemy")
             {
                 //Arranjar o componente do inimigo e chamar a função "TakeDamage"
@@ -66,10 +69,22 @@ public class CustomBullet : MonoBehaviour
                 //Arranjar o componente do jogador e chamar a função "TakeDamage"
                 characters[i].GetComponent<Player>().TakeDamagePlayer(explosionDamage);
             }
+            
+
         }
 
         //Adicionar um delay, só para ter a certeza que está tudo a funcionar
         Invoke("Delay", 0.05f);
+    }
+
+    private void ExplodeOnShield(GameObject shield)
+    {
+        if (explosion != null) Instantiate(explosion, transform.position, Quaternion.identity);
+
+        shield.GetComponent<ShieldDurability>().TakeDmg(explosionDamage);
+
+        Invoke("Delay", 0.05f);
+
     }
 
     private void Delay()
@@ -87,7 +102,17 @@ public class CustomBullet : MonoBehaviour
             if (explodeOnTouch || collision.gameObject.tag == "Enemy") Explode();
 
         if(isEnemyBullet)
-            if (explodeOnTouch || collision.gameObject.tag == "Player") Explode();
+            if (explodeOnTouch || collision.gameObject.tag == "Player") Explode();        
+
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (isEnemyBullet)        
+            if (explodeOnTouch || other.gameObject.tag == "WaterShield") ExplodeOnShield(other.gameObject);
+        
+
+        Debug.Log("Collided with shield");
     }
 
     private void Setup()

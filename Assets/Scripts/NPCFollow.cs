@@ -9,6 +9,7 @@ public class NPCFollow : MonoBehaviour
     [Header("Referências")]
     public GameObject followerGameObject;
     public Transform npcFollow;
+    public Skills skillScript;
 
     //Variáveis para seguir
     [Header("Variáveis Para Seguir")]
@@ -31,6 +32,11 @@ public class NPCFollow : MonoBehaviour
     private Transform target;
     private Enemy targetEnemy;
     public float range = 10f;
+
+    public Transform Target
+    {
+        get { return target; }
+    }
 
     private void Awake()
     {
@@ -56,6 +62,7 @@ public class NPCFollow : MonoBehaviour
             isFollowing = true;
             npcFollow.transform.parent = null;
             followerGameObject.SetActive(false);
+            skillScript.ActivatePet(gameObject.name);
         }
 
         if (isFollowing)

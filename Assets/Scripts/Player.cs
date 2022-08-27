@@ -89,6 +89,8 @@ public class Player : MonoBehaviour
     {
         playerHealth -= damage;
 
+        Debug.Log("Player Health : " + playerHealth);
+
         if (playerHealth <= 0) Invoke(nameof(Die), .5f);
     }
 
