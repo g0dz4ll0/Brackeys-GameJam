@@ -21,6 +21,7 @@ public class Player : MonoBehaviour
     //Estatísticas
     [Header("Estatísticas Gerais")]
     public float playerHealth;
+    public float playerDefense;
 
     //Verificadores
     [Header("Verificadores")]

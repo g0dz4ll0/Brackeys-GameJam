@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f07071f8bb29ed49a406d12ea110e67, type: 3}
+  m_Name: Water
+  m_EditorClassIdentifier: 
+  element: 2
+  elementSprite: {fileID: 21300000, guid: 2cd7b69653407a3478b0a5055346c251, type: 3}
+  buffsTypes: 
+  buffsModifiers: 
+  modifiers: []

@@ -10,6 +10,10 @@ public class Skills : MonoBehaviour
     public GameObject waterSkill;
     public VisualEffect LightningBolt;
 
+    public GameObject Fireball;
+    public GameObject Fireball_Explosion;
+    public GameObject Fireball_Holder;
+
     [Header("Referencias dos NPCs")]
 
     [SerializeField] public GameObject NPCFire;
@@ -24,6 +28,8 @@ public class Skills : MonoBehaviour
     List<float> skillTimers;
 
     public int LightningSkillDamage;
+
+    public float Fireball_Force;
 
     //Ordem nas listas: Fire, Water, Electric, Grass, Earth
 
@@ -114,7 +120,6 @@ public class Skills : MonoBehaviour
 
     }
 
-
     public void DeActivatePet(string element)
     {
 
@@ -158,7 +163,15 @@ public class Skills : MonoBehaviour
 
         //Fire
 
+        if(activatedSkills[0] && skillTimers[0] == 0f)
+        {
 
+            enemyTarget = NPCFire.GetComponent<NPCFollow>().Target;
+
+            if (enemyTarget != null)
+                ActivateFire();
+
+        }
 
         //Water
 
@@ -190,8 +203,12 @@ public class Skills : MonoBehaviour
     public void ActivateFire()
     {
 
+        Rigidbody rg = Instantiate(Fireball, Fireball_Holder.transform.position, Quaternion.identity).GetComponent<Rigidbody>();
 
+        rg.AddForce(NPCFire.transform.forward * Fireball_Force, ForceMode.Impulse);
+        rg.AddForce(NPCFire.transform.up, ForceMode.Impulse);
 
+        skillTimers[0] = skillsCooldowns[0];
     }
 
 
