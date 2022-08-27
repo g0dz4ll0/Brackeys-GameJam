@@ -12,12 +12,12 @@ GameObject:
   - component: {fileID: 8906483227613190200}
   - component: {fileID: 6665002025174641906}
   - component: {fileID: 601572460549595628}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: RedShroom
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &5491564545670698909
 Transform:

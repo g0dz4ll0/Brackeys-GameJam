@@ -135,9 +135,9 @@ MonoBehaviour:
   useGravity: 0
   isEnemyBullet: 1
   explosionDamage: 10
-  explosionRange: 2
+  explosionRange: 0.5
   maxCollisions: 3
-  maxLifeTime: 11111
+  maxLifeTime: 10
   explodeOnTouch: 0
 --- !u!96 &6771750975058746577
 TrailRenderer:

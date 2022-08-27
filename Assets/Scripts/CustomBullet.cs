@@ -56,8 +56,6 @@ public class CustomBullet : MonoBehaviour
         Collider[] characters = Physics.OverlapSphere(transform.position, explosionRange, whatIsEnemies);
         for (int i = 0; i < characters.Length; i++)
         {
-            
-
             if (characters[i].tag == "Enemy")
             {
                 //Arranjar o componente do inimigo e chamar a função "TakeDamage"
@@ -82,14 +80,8 @@ public class CustomBullet : MonoBehaviour
         if (explosion != null) Instantiate(explosion, transform.position, Quaternion.identity);
 
         shield.GetComponent<ShieldDurability>().TakeDmg(explosionDamage);
-
-        Invoke("Delay", 0.05f);
-
-    }
-
-    private void Delay()
-    {
         Destroy(gameObject);
+
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -112,7 +104,7 @@ public class CustomBullet : MonoBehaviour
             if (explodeOnTouch || other.gameObject.tag == "WaterShield") ExplodeOnShield(other.gameObject);
         
 
-        Debug.Log("Collided with shield");
+        Debug.Log("Colidiu com o escudo!");
     }
 
     private void Setup()

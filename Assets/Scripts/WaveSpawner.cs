@@ -18,6 +18,7 @@ public class WaveSpawner : MonoBehaviour
     public Transform[] spawnPoints;
     public Animator animator;
     public Text waveName;
+    public AudioSource waveCompleted;
 
     private Wave currentWave;
     private int currentWaveNumber;
@@ -57,6 +58,7 @@ public class WaveSpawner : MonoBehaviour
     {
         currentWaveNumber++;
         canSpawn = true;
+        //waveCompleted.Play();
     }
 
     void SpawnWave()

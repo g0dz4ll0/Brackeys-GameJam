@@ -119,7 +119,7 @@ Material:
     m_Colors:
     - Toon_Ramp_Tint: {r: 0.490566, g: 0.490566, b: 0.490566, a: 1}
     - _BaseColor: {r: 0.3672385, g: 0.3672385, b: 0.3672385, a: 1}
-    - _Color: {r: 0.63999367, g: 0.63999367, b: 0.63999367, a: 1}
+    - _Color: {r: 0.254717, g: 0.254717, b: 0.254717, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _SpecColor: {r: 0.2, g: 0.2, b: 0.2, a: 1}
   m_BuildTextureStacks: []

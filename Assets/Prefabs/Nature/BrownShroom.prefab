@@ -12,12 +12,12 @@ GameObject:
   - component: {fileID: 4339082550730197882}
   - component: {fileID: 2005073659874410416}
   - component: {fileID: 4564628035197488897}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: BrownShroom
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &835522194704532703
 Transform:

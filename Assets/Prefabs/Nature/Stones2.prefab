@@ -11,12 +11,13 @@ GameObject:
   - component: {fileID: 7449278075297372189}
   - component: {fileID: 2184496791590430505}
   - component: {fileID: 6045769943964707854}
-  m_Layer: 0
+  - component: {fileID: 9022096132907663054}
+  m_Layer: 14
   m_Name: rock 5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &7449278075297372189
 Transform:
@@ -81,6 +82,19 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &9022096132907663054
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 168233275551070022}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.013133224, y: 0.016067212, z: 0.006386804}
+  m_Center: {x: 0.0030069097, y: 0.0016539692, z: -0.0012641158}
 --- !u!1 &3902656050313423469
 GameObject:
   m_ObjectHideFlags: 0
@@ -92,12 +106,13 @@ GameObject:
   - component: {fileID: 2885087719812145452}
   - component: {fileID: 6360030125792864262}
   - component: {fileID: 1263839350923858504}
-  m_Layer: 0
+  - component: {fileID: 610065632692256302}
+  m_Layer: 14
   m_Name: rock 4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &2885087719812145452
 Transform:
@@ -162,6 +177,19 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &610065632692256302
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3902656050313423469}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.015825806, y: 0.016768252, z: 0.0077874907}
+  m_Center: {x: 0.0033515214, y: 0.0023871397, z: -0.00011351992}
 --- !u!1 &5047150513682673836
 GameObject:
   m_ObjectHideFlags: 0
@@ -173,12 +201,13 @@ GameObject:
   - component: {fileID: 5686754712437895137}
   - component: {fileID: 7067998356196058179}
   - component: {fileID: 1192228566587318051}
-  m_Layer: 0
+  - component: {fileID: 3113970198789406164}
+  m_Layer: 14
   m_Name: rock 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &5686754712437895137
 Transform:
@@ -243,6 +272,19 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &3113970198789406164
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5047150513682673836}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.011113099, y: 0.016838647, z: 0.00696703}
+  m_Center: {x: 0.0019998816, y: 0.0020045834, z: -0.0014453555}
 --- !u!1 &6435812877354110054
 GameObject:
   m_ObjectHideFlags: 0
@@ -254,12 +296,13 @@ GameObject:
   - component: {fileID: 8641495540074353527}
   - component: {fileID: 1625449535351171053}
   - component: {fileID: 1985849807379785238}
-  m_Layer: 0
+  - component: {fileID: 101149177096736451}
+  m_Layer: 14
   m_Name: rock 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &8641495540074353527
 Transform:
@@ -324,6 +367,19 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &101149177096736451
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6435812877354110054}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.011464232, y: 0.01611887, z: 0.009699941}
+  m_Center: {x: 0.0014861091, y: 0.0025824974, z: 0.00019634109}
 --- !u!1 &8785324150917819126
 GameObject:
   m_ObjectHideFlags: 0
@@ -333,12 +389,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8259722011629957196}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Stones2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &8259722011629957196
 Transform:
