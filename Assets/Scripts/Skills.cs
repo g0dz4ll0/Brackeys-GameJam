@@ -40,7 +40,7 @@ public class Skills : MonoBehaviour
         for (int i = 0; i < 5; i++)
         {
 
-            skillsCooldowns.Add(1f);
+            skillsCooldowns.Add(5f);
             skillTimers.Add(0f);
             activatedSkills.Add(false);
         }

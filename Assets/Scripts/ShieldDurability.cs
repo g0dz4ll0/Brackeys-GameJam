@@ -7,10 +7,15 @@ public class ShieldDurability : MonoBehaviour
 
     public Skills skillsScript;
 
-
+    public float defaultDurability;
     public float durability;
 
-    float currentDurability;
+    public float currentDurability;
+
+    private void OnEnable()
+    {
+        currentDurability = defaultDurability;
+    }
 
     private void Start()
     {
