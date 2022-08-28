@@ -222,6 +222,8 @@ public class Skills : MonoBehaviour
     public void ActivateFire()
     {
 
+        NPCFire.transform.LookAt(enemyTarget);
+
         Rigidbody rg = Instantiate(Fireball, Fireball_Holder.transform.position, Quaternion.identity).GetComponent<Rigidbody>();
 
         rg.AddForce(NPCFire.transform.forward * Fireball_Force, ForceMode.Impulse);
@@ -251,7 +253,6 @@ public class Skills : MonoBehaviour
 
     public void ActivateLightning()
     {
-        Debug.Log("Before : " + LightningBolt.GetAnimationCurve("LightningLenghtOverTimeCurve").keys[1].value);
 
         float Distance = Vector3.Distance(transform.position, enemyTarget.position) - 5f;
 
@@ -263,7 +264,6 @@ public class Skills : MonoBehaviour
 
         LightningBolt.SetAnimationCurve("LightningLenghtOverTimeCurve", newCurve);
 
-        Debug.Log("After : " + LightningBolt.GetAnimationCurve("LightningLenghtOverTimeCurve").keys[1].value);
         LightningBolt.Play();
 
         enemyTarget.GetComponent<Enemy>().TakeDamage(LightningSkillDamage);

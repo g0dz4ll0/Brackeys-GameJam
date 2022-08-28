@@ -8,9 +8,6 @@ using UnityEngine.Audio;
 
 public class OptionsMenu : MonoBehaviour
 {
-
-    PlayerSettings playerSettings;
-
     
 
     public GameObject previousMenu;

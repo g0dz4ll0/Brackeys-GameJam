@@ -20,10 +20,13 @@ public class PickUpController : MonoBehaviour
 
     [Header("Verificadores")]
     public bool equipped;
-    public static bool slotFull;
+    public bool slotFull;
 
     private void Start()
     {
+
+        equipped = false;
+
         //Setup
         if (!equipped)
         {
@@ -80,7 +83,7 @@ public class PickUpController : MonoBehaviour
 
         foreach(string pet in currentPets)
         {
-
+            Debug.Log("Pet : " + pet);
             skillsScript.ActivatePet(pet);
 
         }

@@ -12,6 +12,7 @@ public class Player : MonoBehaviour
     public GameObject playerObj;
     public Rigidbody rb;
     public Slider healthSlider;
+    public GameObject GameOverPanel;
 
     //Movimento
     [Header("Movimento")]
@@ -22,6 +23,7 @@ public class Player : MonoBehaviour
 
     //Estatísticas
     [Header("Estatísticas Gerais")]
+    public float playerMaxHealth;
     public float playerHealth;
     public float playerDefense;
 
@@ -98,7 +100,7 @@ public class Player : MonoBehaviour
 
     public void TakeDamagePlayer(int damage)
     {
-        playerHealth -= damage;
+        playerHealth -= damage / playerDefense;
 
         healthSlider.value = playerHealth;
         //Debug.Log("Player Health : " + playerHealth);
@@ -114,5 +116,7 @@ public class Player : MonoBehaviour
     private void Die()
     {
         Debug.Log("Morreste!");
+        GameOverPanel.SetActive(true);
+        playerHealth = playerMaxHealth;
     }
 }

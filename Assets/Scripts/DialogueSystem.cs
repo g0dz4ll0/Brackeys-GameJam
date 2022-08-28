@@ -12,6 +12,8 @@ public class DialogueSystem : MonoBehaviour
     public GameObject dialogueGUI;
     public Transform dialogueBoxGUI;
 
+    public Skills skillsScript;
+
     public float letterDelay = 0.1f;
     public float letterMultiplier = 0.5f;
 
@@ -148,6 +150,31 @@ public class DialogueSystem : MonoBehaviour
 
     public void DropDialogue()
     {
+
+        string element = "";
+
+        switch (Names)
+        {
+            case "Kevin":
+                element = "NPCWater";
+                break;
+            case "Tom":
+                element = "NPCShock";
+                break;
+            case "Jimmy":
+                element = "NPCRock";
+                break;
+            case "Will":
+                element = "FirePet";
+                break;
+        }
+        //Debug.Log("Name : " + Names);
+        //Debug.Log("Element : " + element);
+
+        if(element != "")
+            skillsScript.ActivatePet(element);
+
+
         dialogueGUI.SetActive(false);
         dialogueBoxGUI.gameObject.SetActive(false);
     }

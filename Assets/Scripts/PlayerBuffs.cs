@@ -164,6 +164,34 @@ public class PlayerBuffs : MonoBehaviour
                         }
 
                         break;
+                    case ModifierType.Bouncing:
+
+                        switch (buffToAdd.buffsModifiers[i])
+                        {
+
+                            case Operator.Addition:
+
+                               tempBullet.maxCollisions += (int) buffToAdd.modifiers[i];
+
+                                break;
+                            case Operator.Subtraction:
+
+                                tempBullet.maxCollisions -= (int)buffToAdd.modifiers[i];
+
+                                break;
+                            case Operator.Multiply:
+
+                                tempBullet.maxCollisions *= (int)buffToAdd.modifiers[i];
+
+                                break;
+                            case Operator.Division:
+
+                                tempBullet.maxCollisions /= (int)buffToAdd.modifiers[i];
+
+                                break;
+
+                        }
+                        break;
                 }
 
             }
@@ -172,9 +200,11 @@ public class PlayerBuffs : MonoBehaviour
 
         Debug.Log("Ola");
 
+        bool hasBuffed = false;
+
         for (int j = 0; j < BuffsSlotsContent.Count; j++)
         {
-            if (BuffsSlotsContent[j] == Element.None)
+            if (BuffsSlotsContent[j] == Element.None && !hasBuffed)
             {
                 BuffsSlotsContent[j] = buffToAdd.element;
                 ActiveBuffsSlots[j].GetComponent<Image>().sprite = buffToAdd.elementSprite;
@@ -187,8 +217,9 @@ public class PlayerBuffs : MonoBehaviour
 
                 Debug.Log("Slot : " + j);
 
-                return;
+                hasBuffed = true;
             }
+
             
 
         }
@@ -324,6 +355,34 @@ public class PlayerBuffs : MonoBehaviour
 
                         }
 
+                        break;
+                    case ModifierType.Bouncing:
+
+                        switch (buffToAdd.buffsModifiers[i])
+                        {
+
+                            case Operator.Addition:
+
+                                tempBullet.maxCollisions -= (int)buffToAdd.modifiers[i];
+
+                                break;
+                            case Operator.Subtraction:
+
+                                tempBullet.maxCollisions += (int)buffToAdd.modifiers[i];
+
+                                break;
+                            case Operator.Multiply:
+
+                                tempBullet.maxCollisions /= (int)buffToAdd.modifiers[i];
+
+                                break;
+                            case Operator.Division:
+
+                                tempBullet.maxCollisions *= (int)buffToAdd.modifiers[i];
+
+                                break;
+
+                        }
                         break;
                 }
 
