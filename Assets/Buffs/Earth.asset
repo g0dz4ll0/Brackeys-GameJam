@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Earth
   m_EditorClassIdentifier: 
   element: 4
-  elementSprite: {fileID: 0}
+  elementSprite: {fileID: 21300000, guid: 1ea3149ffc988ef47b674ac4a925f614, type: 3}
   buffsTypes: 02000000
   buffsModifiers: 02000000
   modifiers:

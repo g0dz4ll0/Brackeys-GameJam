@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
@@ -10,6 +11,7 @@ public class Player : MonoBehaviour
     public GameObject camera;
     public GameObject playerObj;
     public Rigidbody rb;
+    public Slider healthSlider;
 
     //Movimento
     [Header("Movimento")]
@@ -31,6 +33,14 @@ public class Player : MonoBehaviour
     private Vector3 movement;
 
     //Métodos
+
+    private void Start()
+    {
+
+        healthSlider.maxValue = playerHealth;
+        healthSlider.value = playerHealth;
+
+    }
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.tag == "Floor")
@@ -90,7 +100,8 @@ public class Player : MonoBehaviour
     {
         playerHealth -= damage;
 
-        Debug.Log("Player Health : " + playerHealth);
+        healthSlider.value = playerHealth;
+        //Debug.Log("Player Health : " + playerHealth);
 
         if (playerHealth <= 0) Invoke(nameof(Die), .5f);
     }

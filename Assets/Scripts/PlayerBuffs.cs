@@ -6,13 +6,23 @@ using UnityEngine.UI;
 public class PlayerBuffs : MonoBehaviour
 {
 
+
+    [Header("Buffs")]
+
+    public Buffs fireBuff;
+    public Buffs waterBuff;
+    public Buffs shockBuff;
+    public Buffs earthBuff;
+
+    [Header("Referencias")]
     public GameObject GunContainer;
-
     public Player playerScript;
-
     public List<GameObject> ActiveBuffsSlots;
 
+
     List<Element> BuffsSlotsContent;
+
+
 
     private void Start()
     {
@@ -24,122 +34,160 @@ public class PlayerBuffs : MonoBehaviour
         }
     }
 
-    public void ActivateBuffs(Buffs buff)
+    public void ActivateBuffs(string element)
     {
 
-        ProjectileGun tempGun = GunContainer.GetComponentInChildren<ProjectileGun>();
-        CustomBullet tempBullet = tempGun.bulletScript;
+        Buffs buffToAdd = null;
 
-
-        //Ativar os efeitos do buff.
-        for (int i = 0; i < buff.buffsTypes.Count; i++)
+        switch (element)
         {
 
-            switch (buff.buffsTypes[i])
+            case "Fire":
+                buffToAdd = fireBuff;
+                break;
+            case "Water":
+                buffToAdd = waterBuff;
+                break;
+            case "Shock":
+                buffToAdd = shockBuff;
+                break;
+            case "Earth":
+                buffToAdd = earthBuff;
+                break;
+
+        }            
+
+
+        ProjectileGun tempGun = GunContainer.GetComponentInChildren<ProjectileGun>();
+
+        if(tempGun != null)
+        {
+
+            CustomBullet tempBullet = tempGun.bulletScript;
+
+
+            //Ativar os efeitos do buff.
+            for (int i = 0; i < buffToAdd.buffsTypes.Count; i++)
             {
 
-                case ModifierType.AttackSpeed:
+                switch (buffToAdd.buffsTypes[i])
+                {
 
-                    switch (buff.buffsModifiers[i])
-                    {
+                    case ModifierType.AttackSpeed:
 
-                        case Operator.Addition:
+                        switch (buffToAdd.buffsModifiers[i])
+                        {
 
-                            tempGun.timeBetweenShooting += buff.modifiers[i];
+                            case Operator.Addition:
 
-                            break;
-                        case Operator.Subtraction:
+                                tempGun.timeBetweenShooting += buffToAdd.modifiers[i];
 
-                            tempGun.timeBetweenShooting -= buff.modifiers[i];
+                                break;
+                            case Operator.Subtraction:
 
-                            break;
-                        case Operator.Multiply:
+                                tempGun.timeBetweenShooting -= buffToAdd.modifiers[i];
 
-                            tempGun.timeBetweenShooting *= buff.modifiers[i];
+                                break;
+                            case Operator.Multiply:
 
-                            break;
-                        case Operator.Division:
+                                tempGun.timeBetweenShooting *= buffToAdd.modifiers[i];
 
-                            tempGun.timeBetweenShooting /= buff.modifiers[i];
+                                break;
+                            case Operator.Division:
 
-                            break;
+                                tempGun.timeBetweenShooting /= buffToAdd.modifiers[i];
 
-
-                    }
-
-                    break;
-                case ModifierType.Damage:
+                                break;
 
 
-                    switch (buff.buffsModifiers[i])
-                    {
+                        }
 
-                        case Operator.Addition:
-
-                            tempBullet.explosionDamage += (int) buff.modifiers[i];
-
-                            break;
-                        case Operator.Subtraction:
-
-                            tempBullet.explosionDamage -= (int)buff.modifiers[i];
-
-                            break;
-                        case Operator.Multiply:
-
-                            tempBullet.explosionDamage *= (int)buff.modifiers[i];
-
-                            break;
-                        case Operator.Division:
-
-                            tempBullet.explosionDamage /= (int)buff.modifiers[i];
-
-                            break;
+                        break;
+                    case ModifierType.Damage:
 
 
-                    }
+                        switch (buffToAdd.buffsModifiers[i])
+                        {
 
-                    break;
-                case ModifierType.Defense:
+                            case Operator.Addition:
 
-                    switch (buff.buffsModifiers[i])
-                    {
+                                tempBullet.explosionDamage += (int) buffToAdd.modifiers[i];
 
-                        case Operator.Addition:
+                                break;
+                            case Operator.Subtraction:
 
-                            playerScript.playerDefense += buff.modifiers[i];
+                                tempBullet.explosionDamage -= (int)buffToAdd.modifiers[i];
 
-                            break;
-                        case Operator.Subtraction:
+                                break;
+                            case Operator.Multiply:
 
-                            playerScript.playerDefense -= buff.modifiers[i];
+                                tempBullet.explosionDamage *= (int)buffToAdd.modifiers[i];
 
-                            break;
-                        case Operator.Multiply:
+                                break;
+                            case Operator.Division:
 
-                            playerScript.playerDefense *= buff.modifiers[i];
+                                tempBullet.explosionDamage /= (int)buffToAdd.modifiers[i];
 
-                            break;
-                        case Operator.Division:
-
-                            playerScript.playerDefense /= buff.modifiers[i];
-
-                            break;
+                                break;
 
 
-                    }
+                        }
 
-                    break;
+                        break;
+                    case ModifierType.Defense:
+
+                        switch (buffToAdd.buffsModifiers[i])
+                        {
+
+                            case Operator.Addition:
+
+                                playerScript.playerDefense += buffToAdd.modifiers[i];
+
+                                break;
+                            case Operator.Subtraction:
+
+                                playerScript.playerDefense -= buffToAdd.modifiers[i];
+
+                                break;
+                            case Operator.Multiply:
+
+                                playerScript.playerDefense *= buffToAdd.modifiers[i];
+
+                                break;
+                            case Operator.Division:
+
+                                playerScript.playerDefense /= buffToAdd.modifiers[i];
+
+                                break;
+
+
+                        }
+
+                        break;
+                }
+
             }
 
         }
+
+        Debug.Log("Ola");
 
         for (int j = 0; j < BuffsSlotsContent.Count; j++)
         {
             if (BuffsSlotsContent[j] == Element.None)
             {
-                BuffsSlotsContent[j] = buff.element;
-                ActiveBuffsSlots[j].GetComponent<Image>().sprite = buff.elementSprite;
+                BuffsSlotsContent[j] = buffToAdd.element;
+                ActiveBuffsSlots[j].GetComponent<Image>().sprite = buffToAdd.elementSprite;
 
+                Color tempColor = ActiveBuffsSlots[j].GetComponent<Image>().color;
+
+                tempColor.a = 1f;
+
+                ActiveBuffsSlots[j].GetComponent<Image>().color = tempColor;
+
+                Debug.Log("Slot : " + j);
+
+                return;
             }
             
 
@@ -148,121 +196,155 @@ public class PlayerBuffs : MonoBehaviour
     }
 
 
-    public void DeActivateBuffs(Buffs buff)
+    public void DeActivateBuffs(string element)
     {
 
-        ProjectileGun tempGun = GunContainer.GetComponentInChildren<ProjectileGun>();
-        CustomBullet tempBullet = tempGun.bulletScript;
+        Buffs buffToAdd = null;
 
-        //Desativar os efeitos do buff.
-        for (int i = 0; i < buff.buffsTypes.Count; i++)
+        switch (element)
         {
 
-            switch (buff.buffsTypes[i])
+            case "Fire":
+                buffToAdd = fireBuff;
+                break;
+            case "Water":
+                buffToAdd = waterBuff;
+                break;
+            case "Shock":
+                buffToAdd = shockBuff;
+                break;
+            case "Earth":
+                buffToAdd = earthBuff;
+                break;
+
+        }
+
+        ProjectileGun tempGun = GunContainer.GetComponentInChildren<ProjectileGun>();
+
+        if(tempGun != null)
+        {
+
+
+            CustomBullet tempBullet = tempGun.bulletScript;
+
+            //Desativar os efeitos do buff.
+            for (int i = 0; i < buffToAdd.buffsTypes.Count; i++)
             {
 
-                case ModifierType.AttackSpeed:
+                switch (buffToAdd.buffsTypes[i])
+                {
 
-                    switch (buff.buffsModifiers[i])
-                    {
+                    case ModifierType.AttackSpeed:
 
-                        case Operator.Addition:
+                        switch (buffToAdd.buffsModifiers[i])
+                        {
 
-                            tempGun.timeBetweenShooting -= buff.modifiers[i];
+                            case Operator.Addition:
 
-                            break;
-                        case Operator.Subtraction:
+                                tempGun.timeBetweenShooting -= buffToAdd.modifiers[i];
 
-                            tempGun.timeBetweenShooting += buff.modifiers[i];
+                                break;
+                            case Operator.Subtraction:
 
-                            break;
-                        case Operator.Multiply:
+                                tempGun.timeBetweenShooting += buffToAdd.modifiers[i];
 
-                            tempGun.timeBetweenShooting /= buff.modifiers[i];
+                                break;
+                            case Operator.Multiply:
 
-                            break;
-                        case Operator.Division:
+                                tempGun.timeBetweenShooting /= buffToAdd.modifiers[i];
 
-                            tempGun.timeBetweenShooting *= buff.modifiers[i];
+                                break;
+                            case Operator.Division:
 
-                            break;
+                                tempGun.timeBetweenShooting *= buffToAdd.modifiers[i];
 
-
-                    }
-
-                    break;
-                case ModifierType.Damage:
+                                break;
 
 
-                    switch (buff.buffsModifiers[i])
-                    {
+                        }
 
-                        case Operator.Addition:
-
-                            tempBullet.explosionDamage -= (int)buff.modifiers[i];
-
-                            break;
-                        case Operator.Subtraction:
-
-                            tempBullet.explosionDamage += (int)buff.modifiers[i];
-
-                            break;
-                        case Operator.Multiply:
-
-                            tempBullet.explosionDamage /= (int)buff.modifiers[i];
-
-                            break;
-                        case Operator.Division:
-
-                            tempBullet.explosionDamage *= (int)buff.modifiers[i];
-
-                            break;
+                        break;
+                    case ModifierType.Damage:
 
 
-                    }
+                        switch (buffToAdd.buffsModifiers[i])
+                        {
 
-                    break;
-                case ModifierType.Defense:
+                            case Operator.Addition:
 
-                    switch (buff.buffsModifiers[i])
-                    {
+                                tempBullet.explosionDamage -= (int)buffToAdd.modifiers[i];
 
-                        case Operator.Addition:
+                                break;
+                            case Operator.Subtraction:
 
-                            playerScript.playerDefense -= buff.modifiers[i];
+                                tempBullet.explosionDamage += (int)buffToAdd.modifiers[i];
 
-                            break;
-                        case Operator.Subtraction:
+                                break;
+                            case Operator.Multiply:
 
-                            playerScript.playerDefense += buff.modifiers[i];
+                                tempBullet.explosionDamage /= (int)buffToAdd.modifiers[i];
 
-                            break;
-                        case Operator.Multiply:
+                                break;
+                            case Operator.Division:
 
-                            playerScript.playerDefense /= buff.modifiers[i];
+                                tempBullet.explosionDamage *= (int)buffToAdd.modifiers[i];
 
-                            break;
-                        case Operator.Division:
-
-                            playerScript.playerDefense *= buff.modifiers[i];
-
-                            break;
+                                break;
 
 
-                    }
+                        }
 
-                    break;
+                        break;
+                    case ModifierType.Defense:
+
+                        switch (buffToAdd.buffsModifiers[i])
+                        {
+
+                            case Operator.Addition:
+
+                                playerScript.playerDefense -= buffToAdd.modifiers[i];
+
+                                break;
+                            case Operator.Subtraction:
+
+                                playerScript.playerDefense += buffToAdd.modifiers[i];
+
+                                break;
+                            case Operator.Multiply:
+
+                                playerScript.playerDefense /= buffToAdd.modifiers[i];
+
+                                break;
+                            case Operator.Division:
+
+                                playerScript.playerDefense *= buffToAdd.modifiers[i];
+
+                                break;
+
+
+                        }
+
+                        break;
+                }
+
             }
 
         }
 
         for (int j = 0; j < BuffsSlotsContent.Count; j++)
         {
-            if (BuffsSlotsContent[j] == buff.element)
+            if (BuffsSlotsContent[j] == buffToAdd.element)
             {
                 BuffsSlotsContent[j] = Element.None;
                 ActiveBuffsSlots[j].GetComponent<Image>().sprite = null;
 
+                Color tempColor = ActiveBuffsSlots[j].GetComponent<Image>().color;
+
+                tempColor.a = 0f;
+
+                ActiveBuffsSlots[j].GetComponent<Image>().color = tempColor;
+
+                return;
             }
 
 

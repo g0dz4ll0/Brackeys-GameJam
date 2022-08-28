@@ -12,6 +12,8 @@ public class PickUpController : MonoBehaviour
     public WaveSpawner waveSpawner;
     public AudioSource pickUp;
 
+    public Skills skillsScript;
+
     [Header("Forças e Alcances")]
     public float pickUpRange;
     public float dropForwardForce, dropUpwardForce;
@@ -71,6 +73,19 @@ public class PickUpController : MonoBehaviour
 
         //Ativar o script
         gunScript.enabled = true;
+
+
+        //Ativar os Pets
+        List<string> currentPets = skillsScript.GetCurrentPets();
+
+        foreach(string pet in currentPets)
+        {
+
+            skillsScript.ActivatePet(pet);
+
+        }
+
+        
     }
 
     private void Drop()
@@ -96,6 +111,17 @@ public class PickUpController : MonoBehaviour
         rb.AddTorque(new Vector3(random, random, random) * 10);
 
         //desativar o script
-        gunScript.enabled = false; 
+        gunScript.enabled = false;
+
+
+        //Desativar os Pets
+        List<string> currentPets = skillsScript.GetCurrentPets();
+
+        foreach (string pet in currentPets)
+        {
+
+            skillsScript.DeActivatePet(pet);
+
+        }
     }
 }

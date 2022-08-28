@@ -74,74 +74,74 @@ public class NPC : MonoBehaviour
 
             nextWaveSpawner.SetActive(true);
 
-            if (equippedGun == null)
-            {
-                Debug.Log("Nenhuma arma equipada!");
-            }
-            else
-            {
-                if (isShock)
-                {
-                    if (equippedGun.timeBetweenShooting > 0)
-                        equippedGun.timeBetweenShooting -= 1.5f;
+            //if (equippedGun == null)
+            //{
+            //    Debug.Log("Nenhuma arma equipada!");
+            //}
+            //else
+            //{
+            //    if (isShock)
+            //    {
+            //        if (equippedGun.timeBetweenShooting > 0)
+            //            equippedGun.timeBetweenShooting -= 1.5f;
 
-                    equippedGun.bulletScript.useGravity = true;
-                    equippedGun.bulletScript.explodeOnTouch = false;
+            //        equippedGun.bulletScript.useGravity = true;
+            //        equippedGun.bulletScript.explodeOnTouch = false;
 
-                    if (equippedGun.shootForce - 75f > 0)
-                        equippedGun.shootForce -= 75f;
+            //        if (equippedGun.shootForce - 75f > 0)
+            //            equippedGun.shootForce -= 75f;
 
-                    equippedGun.bulletScript.maxCollisions += 3;
+            //        equippedGun.bulletScript.maxCollisions += 3;
 
-                    if (equippedGun.bulletScript.bounciness < 1f)
-                        equippedGun.bulletScript.bounciness = 0.8f;
+            //        if (equippedGun.bulletScript.bounciness < 1f)
+            //            equippedGun.bulletScript.bounciness = 0.8f;
 
-                    if (equippedGun.timeBetweenShooting + 0.8f <= 0)
-                    {
-                        equippedGun.timeBetweenShooting = 0.05f;
-                    }
-                }
+            //        if (equippedGun.timeBetweenShooting + 0.8f <= 0)
+            //        {
+            //            equippedGun.timeBetweenShooting = 0.05f;
+            //        }
+            //    }
 
-                if (isWater)
-                {
-                    equippedGun.spreadAngle += 10;
-                }
+            //    if (isWater)
+            //    {
+            //        equippedGun.spreadAngle += 10;
+            //    }
 
-                if (isRock)
-                {
-                    equippedGun.bullet.transform.localScale *= 2f;
-                    equippedGun.timeBetweenShooting += 1f;
-                    equippedGun.bulletScript.useGravity = true;
-                    equippedGun.bulletScript.explodeOnTouch = false;
+            //    if (isRock)
+            //    {
+            //        equippedGun.bullet.transform.localScale *= 2f;
+            //        equippedGun.timeBetweenShooting += 1f;
+            //        equippedGun.bulletScript.useGravity = true;
+            //        equippedGun.bulletScript.explodeOnTouch = false;
 
-                    if (equippedGun.shootForce - 75f > 0)
-                        equippedGun.shootForce -= 75f;
+            //        if (equippedGun.shootForce - 75f > 0)
+            //            equippedGun.shootForce -= 75f;
 
-                    equippedGun.bulletScript.maxCollisions += 3;
+            //        equippedGun.bulletScript.maxCollisions += 3;
 
-                    if (equippedGun.bulletScript.bounciness + 0.8f < 1f)
-                        equippedGun.bulletScript.bounciness = 0.8f;
-                }
+            //        if (equippedGun.bulletScript.bounciness + 0.8f < 1f)
+            //            equippedGun.bulletScript.bounciness = 0.8f;
+            //    }
 
-                if (isFire)
-                {
-                    equippedGun.bullet.transform.localScale *= 2f;
-                    equippedGun.timeBetweenShooting += 1f;
-                    equippedGun.bulletScript.useGravity = true;
-                    equippedGun.bulletScript.explodeOnTouch = false;
+            //    if (isFire)
+            //    {
+            //        equippedGun.bullet.transform.localScale *= 2f;
+            //        equippedGun.timeBetweenShooting += 1f;
+            //        equippedGun.bulletScript.useGravity = true;
+            //        equippedGun.bulletScript.explodeOnTouch = false;
 
-                    if (equippedGun.shootForce - 75f > 0)
-                        equippedGun.shootForce -= 75f;
+            //        if (equippedGun.shootForce - 75f > 0)
+            //            equippedGun.shootForce -= 75f;
 
-                    equippedGun.bulletScript.maxCollisions += 3;
+            //        equippedGun.bulletScript.maxCollisions += 3;
 
-                    if (equippedGun.bulletScript.bounciness + 0.8f < 1f)
-                        equippedGun.bulletScript.bounciness = 0.8f;
+            //        if (equippedGun.bulletScript.bounciness + 0.8f < 1f)
+            //            equippedGun.bulletScript.bounciness = 0.8f;
 
-                    equippedGun.bulletScript.explosionDamage += 50;
-                    equippedGun.bulletScript.explosionRange += 5f;
-                }
-            }
+            //        equippedGun.bulletScript.explosionDamage += 50;
+            //        equippedGun.bulletScript.explosionRange += 5f;
+            //    }
+            //}
         } 
     }
 

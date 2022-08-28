@@ -71,8 +71,7 @@ public class CustomBullet : MonoBehaviour
 
         }
 
-        //Adicionar um delay, só para ter a certeza que está tudo a funcionar
-        Invoke("Delay", 0.05f);
+        Destroy(gameObject);
     }
 
     private void ExplodeOnShield(GameObject shield)

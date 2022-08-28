@@ -16,7 +16,7 @@ public class Skills : MonoBehaviour
 
     [Header("Referencias dos NPCs")]
 
-    [SerializeField] public GameObject NPCFire;
+    public GameObject NPCFire;
     public GameObject NPCWater;
     public GameObject NPCShock;
     public GameObject NPCEarth;
@@ -30,6 +30,10 @@ public class Skills : MonoBehaviour
     public int LightningSkillDamage;
 
     public float Fireball_Force;
+
+    [Header("Referencias de Scripts")]
+
+    public PlayerBuffs playerBuffs;
 
     //Ordem nas listas: Fire, Water, Electric, Grass, Earth
 
@@ -92,15 +96,20 @@ public class Skills : MonoBehaviour
 
             case "FirePet":
 
+                playerBuffs.ActivateBuffs("Fire");
                 activatedSkills[0] = true;
 
                 break;
             case "NPCWater":
 
+                playerBuffs.ActivateBuffs("Water");
+
                 activatedSkills[1] = true;
 
                 break;
             case "NPCShock":
+
+                playerBuffs.ActivateBuffs("Shock");
 
                 activatedSkills[2] = true;
 
@@ -111,6 +120,8 @@ public class Skills : MonoBehaviour
 
                 break;
             case "NPCRock":
+
+                playerBuffs.ActivateBuffs("Earth");
 
                 activatedSkills[4] = true;
 
@@ -128,15 +139,21 @@ public class Skills : MonoBehaviour
 
             case "FirePet":
 
+                playerBuffs.DeActivateBuffs("Fire");
+
                 activatedSkills[0] = false;
 
                 break;
             case "NPCWater":
 
+                playerBuffs.DeActivateBuffs("Water");
+
                 activatedSkills[1] = false;
 
                 break;
             case "NPCShock":
+
+                playerBuffs.DeActivateBuffs("Shock");
 
                 activatedSkills[2] = false;
 
@@ -147,6 +164,8 @@ public class Skills : MonoBehaviour
 
                 break;
             case "NPCRock":
+
+                playerBuffs.DeActivateBuffs("Earth");
 
                 activatedSkills[4] = false;
 
@@ -259,6 +278,40 @@ public class Skills : MonoBehaviour
 
     }
 
+    public List<string> GetCurrentPets()
+    {
 
+        List<string> currentPets = new List<string>();
+
+        for(int i = 0; i < activatedSkills.Count; i++)
+        {
+
+            if (activatedSkills[i])
+            {
+
+                switch (i)
+                {
+
+                    case 0:
+                        currentPets.Add("Fire");
+                        break;
+                    case 1:
+                        currentPets.Add("Water");
+                        break;
+                    case 2:
+                        currentPets.Add("Shock");
+                        break;
+                    case 3:
+                        currentPets.Add("Earth");
+                        break;
+
+                }
+
+            }
+
+        }
+
+        return currentPets;
+    }
 
 }
