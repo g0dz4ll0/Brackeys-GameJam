@@ -293,16 +293,16 @@ public class Skills : MonoBehaviour
                 {
 
                     case 0:
-                        currentPets.Add("Fire");
+                        currentPets.Add("FirePet");
                         break;
                     case 1:
-                        currentPets.Add("Water");
+                        currentPets.Add("NPCWater");
                         break;
                     case 2:
-                        currentPets.Add("Shock");
+                        currentPets.Add("NPCShock");
                         break;
                     case 3:
-                        currentPets.Add("Earth");
+                        currentPets.Add("NPCEarth");
                         break;
 
                 }

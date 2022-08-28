@@ -157,7 +157,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e481dfcc14e10f4ea3448cb19dba6dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fireballExplosion: {fileID: 3108890519612156201, guid: 63150429546d7434baae312010075be8, type: 3}
+  fireballExplosion: {fileID: 690507375631266156, guid: 6a19626b3b98ce648a5c6f0a59baf1b0, type: 3}
   WhatIsEnemy:
     serializedVersion: 2
     m_Bits: 64

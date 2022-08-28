@@ -84,7 +84,9 @@ public class PickUpController : MonoBehaviour
         foreach(string pet in currentPets)
         {
             Debug.Log("Pet : " + pet);
+            skillsScript.DeActivatePet(pet);
             skillsScript.ActivatePet(pet);
+
 
         }
 

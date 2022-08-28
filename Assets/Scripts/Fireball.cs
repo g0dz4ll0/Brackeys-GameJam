@@ -33,12 +33,14 @@ public class Fireball : MonoBehaviour
     {
         if (collision.gameObject.tag == "Enemy")
         {
-
+            fireballExplosion.transform.localScale += Vector3.one * 2f;
             Instantiate(fireballExplosion, transform.position, Quaternion.identity);
 
             collision.gameObject.GetComponent<Enemy>().TakeDamage(ExplosionDmg);
 
             Invoke("Delay", 0.05f);
+
+            fireballExplosion.transform.localScale -= Vector3.one * 2f;
 
         }
     }
