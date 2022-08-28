@@ -11,6 +11,7 @@ public class PickUpController : MonoBehaviour
     public Transform player, gunContainer;
     public WaveSpawner waveSpawner;
     public AudioSource pickUp;
+    public GameObject pickUpGUI;
 
     public Skills skillsScript;
 
@@ -47,9 +48,15 @@ public class PickUpController : MonoBehaviour
     {
         //Verificar se o jogador está dentro do alcance e pressionou a tecla "E"
         Vector3 distanceToPlayer = player.position - transform.position;
+        if (!equipped && distanceToPlayer.magnitude <= pickUpRange)
+            pickUpGUI.SetActive(true);
+        else
+            pickUpGUI.SetActive(false);
+
         if (!equipped && distanceToPlayer.magnitude <= pickUpRange && Input.GetKeyDown(KeyCode.E) && !slotFull)
         {
             PickUp();
+            pickUpGUI.SetActive(false);
             waveSpawner.enabled = true;
         }
 
@@ -86,8 +93,6 @@ public class PickUpController : MonoBehaviour
             Debug.Log("Pet : " + pet);
             skillsScript.DeActivatePet(pet);
             skillsScript.ActivatePet(pet);
-
-
         }
 
         

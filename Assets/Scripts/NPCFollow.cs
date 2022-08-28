@@ -61,7 +61,6 @@ public class NPCFollow : MonoBehaviour
             isFollowing = true;
             npcFollow.transform.parent = null;
             followerGameObject.SetActive(false);
-            
         }
 
         if (isFollowing)

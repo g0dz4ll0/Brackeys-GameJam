@@ -567,11 +567,11 @@ MonoBehaviour:
   walkPoint: {x: 0, y: 0, z: 0}
   walkPointRange: 0
   timeBetweenAttacks: 1
-  projectile: {fileID: 2074461828003215704, guid: 1db78042769db034bb645ce8f8317793, type: 3}
-  forwardForce: 32
-  upwardForce: 0
+  projectile: {fileID: 2074461828003215704, guid: 87663063124decf48b0d0a626fb42817, type: 3}
+  forwardForce: 15
+  upwardForce: 6
   sightRange: 1000
-  attackRange: 15
+  attackRange: 10
   playerInSightRange: 0
   playerInAttackRange: 0
 --- !u!65 &2215374886469290276
