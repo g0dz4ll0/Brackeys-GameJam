@@ -8,12 +8,18 @@ public class Portal : MonoBehaviour
     public GameObject desertWaveSpawner;
     public Player playerScript;
 
+    List<GameObject> NPCsFollowing;
+
+    private void Start()
+    {
+        NPCsFollowing = new List<GameObject>();
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "Player")
-        {
-            //npc.transform.position = targetLocation.transform.position + (npc.transform.position - other.gameObject.transform.position);
-
+        {          
+            
             other.gameObject.transform.position = targetLocation.transform.position;
         }
 

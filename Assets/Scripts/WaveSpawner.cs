@@ -21,6 +21,7 @@ public class WaveSpawner : MonoBehaviour
     public AudioSource waveCompleted;
     public GameObject forestPortal;
     public GameObject desertPortal;
+    public Player playerScript;
 
     private Wave currentWave;
     private int currentWaveNumber;
@@ -71,7 +72,20 @@ public class WaveSpawner : MonoBehaviour
     {
         currentWaveNumber++;
         canSpawn = true;
+        playerScript.playerHealth += 10;
+
+        playerScript.playerHealthPopUp.text = "+10";
+
+        Invoke("DelayPopUp", 2f);
+
         //waveCompleted.Play();
+    }
+
+    public void DelayPopUp()
+    {
+
+        playerScript.playerHealthPopUp.text = "";
+
     }
 
     void SpawnWave()

@@ -13,6 +13,9 @@ public class PauseMenu : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Escape))
         {
+            if (PauseMenu_Panel.active) Time.timeScale = 1.0f;
+            else Time.timeScale = 0.0f;
+
             PauseMenu_Panel.SetActive(!PauseMenu_Panel.activeSelf);
         }
 
@@ -23,6 +26,7 @@ public class PauseMenu : MonoBehaviour
     {
 
         PauseMenu_Panel.SetActive(false);
+        Time.timeScale = 1.0f;
 
     }
 

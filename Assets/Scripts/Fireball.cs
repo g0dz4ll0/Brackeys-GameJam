@@ -12,6 +12,8 @@ public class Fireball : MonoBehaviour
 
     public int ExplosionDmg;
 
+    public float lifetime;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -21,12 +23,26 @@ public class Fireball : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        lifetime -= Time.deltaTime;
+
+        if (lifetime <= 0) Explode();
     }    
 
     private void Delay()
     {
         Destroy(gameObject);
+    }
+
+    public void Explode()
+    {
+
+        fireballExplosion.transform.localScale += Vector3.one * 2f;
+
+        Instantiate(fireballExplosion, transform.position, Quaternion.identity);
+
+        Invoke("Delay", 0.05f);
+
+        fireballExplosion.transform.localScale -= Vector3.one * 2f;
     }
 
     private void OnCollisionEnter(Collision collision)

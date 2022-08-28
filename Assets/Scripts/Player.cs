@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class Player : MonoBehaviour
 {
@@ -13,6 +14,7 @@ public class Player : MonoBehaviour
     public Rigidbody rb;
     public Slider healthSlider;
     public GameObject GameOverPanel;
+    public TextMeshProUGUI playerHealthPopUp;
 
     //Movimento
     [Header("Movimento")]
@@ -33,6 +35,7 @@ public class Player : MonoBehaviour
     public bool hasDashed;
 
     private Vector3 movement;
+    private float healthRegenTimer;
 
     //Métodos
 
@@ -41,6 +44,8 @@ public class Player : MonoBehaviour
 
         healthSlider.maxValue = playerHealth;
         healthSlider.value = playerHealth;
+
+        healthRegenTimer = 0f;
 
     }
     private void OnCollisionEnter(Collision collision)
@@ -62,6 +67,25 @@ public class Player : MonoBehaviour
 
         //Movimento do jogador
         PlayerMovement();
+
+        healthRegenTimer += Time.deltaTime;
+
+        if(healthRegenTimer >= 10f)
+        {
+            playerHealthPopUp.text = "+1";
+
+            Invoke("DelayPopUp", 2f);
+
+            playerHealth += 1;
+            healthRegenTimer = 0f;
+        }
+    }
+
+    public void DelayPopUp()
+    {
+
+        playerHealthPopUp.text = "";
+
     }
 
     private void PlayerLook()

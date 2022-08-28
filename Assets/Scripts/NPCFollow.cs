@@ -9,6 +9,7 @@ public class NPCFollow : MonoBehaviour
     [Header("Referências")]
     public GameObject followerGameObject;
     public Transform npcFollow;
+    public Player playerScript;
 
     //Variáveis para seguir
     [Header("Variáveis Para Seguir")]
@@ -52,6 +53,15 @@ public class NPCFollow : MonoBehaviour
     private void Update()
     {
         StartNPC();
+
+        if(Vector3.Distance(playerScript.gameObject.transform.position, transform.position) > 20f)
+        {
+
+            transform.position = playerScript.gameObject.transform.position + new Vector3(3f, 0f, 3f);
+
+        }
+
+
     }
 
     public void StartNPC()

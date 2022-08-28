@@ -136,7 +136,7 @@ MonoBehaviour:
   isEnemyBullet: 0
   explosionDamage: 25
   explosionRange: 1
-  maxCollisions: 1
+  maxCollisions: 0
   maxLifeTime: 5
   explodeOnTouch: 1
 --- !u!96 &6771750975058746577
