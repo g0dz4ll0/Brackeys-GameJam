@@ -7,11 +7,22 @@ public class Portal : MonoBehaviour
     public Transform targetLocation;
     public GameObject desertWaveSpawner;
 
+    public Player playerScript;
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "Player")
         {
+            foreach(GameObject npc in playerScript.NPCsFollowing)
+            {
+
+                npc.transform.position = targetLocation.transform.position + (npc.transform.position - other.gameObject.transform.position);
+
+            }
+
             other.gameObject.transform.position = targetLocation.transform.position;
+
+
         }
 
         desertWaveSpawner.SetActive(true);
