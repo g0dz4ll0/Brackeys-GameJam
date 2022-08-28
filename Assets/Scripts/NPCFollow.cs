@@ -9,7 +9,6 @@ public class NPCFollow : MonoBehaviour
     [Header("Referências")]
     public GameObject followerGameObject;
     public Transform npcFollow;
-    public Player playerScript;
 
     //Variáveis para seguir
     [Header("Variáveis Para Seguir")]
@@ -69,8 +68,6 @@ public class NPCFollow : MonoBehaviour
         {
             agent.SetDestination(player.position);
             this.gameObject.GetComponent<NPC>().enabled = false;
-
-            playerScript.NPCsFollowing.Add(gameObject);
         }
 
             if (target != null)

@@ -32,8 +32,6 @@ public class Player : MonoBehaviour
     public bool isGrounded;
     public bool hasDashed;
 
-    public List<GameObject> NPCsFollowing;
-
     private Vector3 movement;
 
     //Métodos
@@ -43,8 +41,6 @@ public class Player : MonoBehaviour
 
         healthSlider.maxValue = playerHealth;
         healthSlider.value = playerHealth;
-
-        NPCsFollowing = new List<GameObject>();
 
     }
     private void OnCollisionEnter(Collision collision)
