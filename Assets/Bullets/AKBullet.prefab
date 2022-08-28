@@ -131,14 +131,14 @@ MonoBehaviour:
   whatIsEnemies:
     serializedVersion: 2
     m_Bits: 64
-  bounciness: 0.8
-  useGravity: 1
+  bounciness: 0
+  useGravity: 0
   isEnemyBullet: 0
-  explosionDamage: 20
+  explosionDamage: 25
   explosionRange: 1
-  maxCollisions: 2
+  maxCollisions: 1
   maxLifeTime: 5
-  explodeOnTouch: 0
+  explodeOnTouch: 1
 --- !u!96 &6771750975058746577
 TrailRenderer:
   serializedVersion: 2

@@ -19,6 +19,8 @@ public class WaveSpawner : MonoBehaviour
     public Animator animator;
     public Text waveName;
     public AudioSource waveCompleted;
+    public GameObject forestPortal;
+    public GameObject desertPortal;
 
     private Wave currentWave;
     private int currentWaveNumber;
@@ -27,6 +29,8 @@ public class WaveSpawner : MonoBehaviour
 
     private bool canSpawn = true;
     private bool canAnimate = false;
+    public bool isForestLast;
+    public bool isDesertLast;
 
     private void Update()
     {
@@ -50,6 +54,15 @@ public class WaveSpawner : MonoBehaviour
                 followerGameObject.SetActive(true);
                 this.enabled = false;
 
+                if (isForestLast)
+                {
+                    forestPortal.SetActive(true);
+                }
+
+                if (isDesertLast)
+                {
+                    desertPortal.SetActive(true);
+                }
             }
         }
     }

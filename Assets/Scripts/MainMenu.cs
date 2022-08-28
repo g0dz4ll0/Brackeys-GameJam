@@ -18,6 +18,7 @@ public class MainMenu : MonoBehaviour
     public void ExitGame()
     {
         Application.Quit();
+        Debug.Log("Quitting Game...");
     }
 
     public void Options()
@@ -25,7 +26,11 @@ public class MainMenu : MonoBehaviour
 
         mainMenu.SetActive(false);
         OptionsMenuPrefab.SetActive(true);
+    }
 
+    public void GoToMainMenu()
+    {
+        SceneManager.LoadScene(0);
     }
 
 }

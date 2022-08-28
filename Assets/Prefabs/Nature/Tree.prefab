@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 1322450854937367970}
   - component: {fileID: 3872740821478728040}
   - component: {fileID: 3629396645494717824}
+  - component: {fileID: 1126392767595230977}
   m_Layer: 14
   m_Name: Tree
   m_TagString: Untagged
@@ -28,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 3368201254823739581}
   m_LocalRotation: {x: -0.7069834, y: 0, z: 0, w: 0.7072302}
   m_LocalPosition: {x: 595.3225, y: 3.8311608, z: 232.33458}
-  m_LocalScale: {x: 115.872025, y: 115.872025, z: 277.04788}
+  m_LocalScale: {x: 115.872025, y: 115.872, z: 277.0479}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -96,3 +97,22 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.02417386, y: 0.024173863, z: 0.027211973}
   m_Center: {x: -4.6566134e-10, y: 0, z: -0.00022252}
+--- !u!95 &1126392767595230977
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3368201254823739581}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: deded8832200768489122f87cb063ccb, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
