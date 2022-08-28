@@ -14,8 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   element: 1
   elementSprite: {fileID: 21300000, guid: b83e3f61894175146abda3df3a9078b2, type: 3}
-  buffsTypes: 0100000002000000
-  buffsModifiers: 0200000002000000
+  buffsTypes: 010000000200000003000000
+  buffsModifiers: 020000000200000001000000
   modifiers:
-  - 1.5
+  - 3
   - 0.7
+  - 1
