@@ -12,6 +12,7 @@ public class PickUpController : MonoBehaviour
     public WaveSpawner waveSpawner;
     public AudioSource pickUp;
     public GameObject pickUpGUI;
+    public GameObject weapons;
 
     public Skills skillsScript;
 
@@ -21,11 +22,10 @@ public class PickUpController : MonoBehaviour
 
     [Header("Verificadores")]
     public bool equipped;
-    public bool slotFull;
+    public static bool slotFull;
 
     private void Start()
     {
-
         equipped = false;
 
         //Setup
@@ -34,6 +34,7 @@ public class PickUpController : MonoBehaviour
             gunScript.enabled = false;
             rb.isKinematic = false;
             coll.isTrigger = false;
+            slotFull = false;
         }
         if (equipped)
         {
@@ -58,10 +59,11 @@ public class PickUpController : MonoBehaviour
             PickUp();
             pickUpGUI.SetActive(false);
             waveSpawner.enabled = true;
+            weapons.SetActive(false);
         }
 
         //Atirar a arma se estiver equipada e o botão "Q" for pressionado
-        if (equipped && Input.GetKeyDown(KeyCode.Q)) Drop(); 
+        //if (equipped && Input.GetKeyDown(KeyCode.Q)) Drop(); 
     }
 
     private void PickUp()
@@ -83,7 +85,6 @@ public class PickUpController : MonoBehaviour
 
         //Ativar o script
         gunScript.enabled = true;
-
 
         //Ativar os Pets
         List<string> currentPets = skillsScript.GetCurrentPets();

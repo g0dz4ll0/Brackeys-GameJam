@@ -172,21 +172,152 @@ public class PlayerBuffs : MonoBehaviour
                             case Operator.Addition:
 
                                tempBullet.maxCollisions += (int) buffToAdd.modifiers[i];
+                               tempBullet.explodeOnTouch = false;
 
                                 break;
                             case Operator.Subtraction:
 
                                 tempBullet.maxCollisions -= (int)buffToAdd.modifiers[i];
+                                tempBullet.explodeOnTouch = false;
 
                                 break;
                             case Operator.Multiply:
 
                                 tempBullet.maxCollisions *= (int)buffToAdd.modifiers[i];
+                                tempBullet.explodeOnTouch = false;
 
                                 break;
                             case Operator.Division:
 
                                 tempBullet.maxCollisions /= (int)buffToAdd.modifiers[i];
+                                tempBullet.explodeOnTouch = false;
+
+                                break;
+
+                        }
+                        break;
+                    case ModifierType.Scale:
+
+                        switch (buffToAdd.buffsModifiers[i])
+                        {
+
+                            case Operator.Addition:
+
+                               tempBullet.transform.localScale += new Vector3 ((int)buffToAdd.modifiers[i], (int)buffToAdd.modifiers[i], (int)buffToAdd.modifiers[i]);
+
+                                break;
+                            case Operator.Subtraction:
+
+                                tempBullet.transform.localScale -= new Vector3 ((int)buffToAdd.modifiers[i], (int)buffToAdd.modifiers[i], (int)buffToAdd.modifiers[i]);
+
+                                break;
+                            case Operator.Multiply:
+
+                                tempBullet.transform.localScale *= (int)buffToAdd.modifiers[i];
+
+                                break;
+                            case Operator.Division:
+
+                                tempBullet.transform.localScale /= (int)buffToAdd.modifiers[i];
+
+                                break;
+
+                        }
+                        break;
+                    case ModifierType.Gravity:
+
+                        switch (buffToAdd.buffsModifiers[i])
+                        {
+
+                            case Operator.Addition:
+
+                               tempBullet.useGravity = true;
+                               tempGun.shootForce = 15f; 
+
+                                break;
+                            case Operator.Subtraction:
+
+                                tempBullet.useGravity = true;
+                                tempGun.shootForce = 15f; 
+
+                                break;
+                            case Operator.Multiply:
+
+                                tempBullet.useGravity = true;
+                                tempGun.shootForce = 15f; 
+
+                                break;
+                            case Operator.Division:
+
+                                tempBullet.useGravity = true;
+                                tempGun.shootForce = 15f; 
+
+                                break;
+
+                        }
+                        break;
+                    case ModifierType.Bounciness:
+
+                        switch (buffToAdd.buffsModifiers[i])
+                        {
+
+                            case Operator.Addition:
+
+                                if (tempBullet.bounciness + buffToAdd.modifiers[i] >= 0f && tempBullet.bounciness + buffToAdd.modifiers[i] <= 1f)
+                                {
+                                    tempBullet.bounciness += buffToAdd.modifiers[i];
+                                }
+
+                                break;
+                            case Operator.Subtraction:
+
+                                if (tempBullet.bounciness - buffToAdd.modifiers[i] >= 0f && tempBullet.bounciness - buffToAdd.modifiers[i] <= 1f)
+                                {
+                                    tempBullet.bounciness -= buffToAdd.modifiers[i];
+                                } 
+
+                                break;
+                            case Operator.Multiply:
+
+                                if (tempBullet.bounciness * buffToAdd.modifiers[i] >= 0f && tempBullet.bounciness * buffToAdd.modifiers[i] <= 1f)
+                                {
+                                    tempBullet.bounciness *= buffToAdd.modifiers[i];
+                                } 
+
+                                break;
+                            case Operator.Division:
+
+                                if (tempBullet.bounciness / buffToAdd.modifiers[i] >= 0f && tempBullet.bounciness / buffToAdd.modifiers[i] <= 1f)
+                                {
+                                    tempBullet.bounciness /= buffToAdd.modifiers[i];
+                                } 
+
+                                break;
+                        }
+                        break;
+                    case ModifierType.ShootUp:
+
+                        switch (buffToAdd.buffsModifiers[i])
+                        {
+
+                            case Operator.Addition:
+
+                                tempGun.upwardForce = 8f;
+
+                                break;
+                            case Operator.Subtraction:
+
+                                tempGun.upwardForce = 8f;
+
+                                break;
+                            case Operator.Multiply:
+
+                                tempGun.upwardForce = 8f;
+
+                                break;
+                            case Operator.Division:
+
+                                tempGun.upwardForce = 8f;
 
                                 break;
 
@@ -364,21 +495,153 @@ public class PlayerBuffs : MonoBehaviour
                             case Operator.Addition:
 
                                 tempBullet.maxCollisions -= (int)buffToAdd.modifiers[i];
+                                tempBullet.explodeOnTouch = true;
 
                                 break;
                             case Operator.Subtraction:
 
                                 tempBullet.maxCollisions += (int)buffToAdd.modifiers[i];
+                                tempBullet.explodeOnTouch = true;
 
                                 break;
                             case Operator.Multiply:
 
                                 tempBullet.maxCollisions /= (int)buffToAdd.modifiers[i];
+                                tempBullet.explodeOnTouch = true;
 
                                 break;
                             case Operator.Division:
 
                                 tempBullet.maxCollisions *= (int)buffToAdd.modifiers[i];
+                                tempBullet.explodeOnTouch = true;
+
+                                break;
+
+                        }
+                        break;
+                    case ModifierType.Scale:
+
+                        switch (buffToAdd.buffsModifiers[i])
+                        {
+
+                            case Operator.Addition:
+
+                               tempBullet.transform.localScale -= new Vector3 ((int)buffToAdd.modifiers[i], (int)buffToAdd.modifiers[i], (int)buffToAdd.modifiers[i]);
+
+                                break;
+                            case Operator.Subtraction:
+
+                                tempBullet.transform.localScale += new Vector3 ((int)buffToAdd.modifiers[i], (int)buffToAdd.modifiers[i], (int)buffToAdd.modifiers[i]);
+
+                                break;
+                            case Operator.Multiply:
+
+                                tempBullet.transform.localScale /= (int)buffToAdd.modifiers[i];
+
+                                break;
+                            case Operator.Division:
+
+                                tempBullet.transform.localScale *= (int)buffToAdd.modifiers[i];
+
+                                break;
+
+                        }
+                        break;
+                    case ModifierType.Gravity:
+
+                        switch (buffToAdd.buffsModifiers[i])
+                        {
+
+                            case Operator.Addition:
+
+                               tempBullet.useGravity = true;
+                               tempGun.shootForce = tempGun.defaultShootForce;
+
+                                break;
+                            case Operator.Subtraction:
+
+                                tempBullet.useGravity = true;
+                                tempGun.shootForce = tempGun.defaultShootForce; 
+
+                                break;
+                            case Operator.Multiply:
+
+                                tempBullet.useGravity = true;
+                                tempGun.shootForce = tempGun.defaultShootForce; 
+
+                                break;
+                            case Operator.Division:
+
+                                tempBullet.useGravity = true;
+                                tempGun.shootForce = tempGun.defaultShootForce; 
+
+                                break;
+
+                        }
+                        break;
+                    case ModifierType.Bounciness:
+
+                        switch (buffToAdd.buffsModifiers[i])
+                        {
+
+                            case Operator.Addition:
+
+                                if (tempBullet.bounciness - buffToAdd.modifiers[i] >= 0f && tempBullet.bounciness - buffToAdd.modifiers[i] <= 1f)
+                                {
+                                    tempBullet.bounciness -= buffToAdd.modifiers[i];
+                                }
+
+                                break;
+                            case Operator.Subtraction:
+
+                                if (tempBullet.bounciness + buffToAdd.modifiers[i] >= 0f && tempBullet.bounciness + buffToAdd.modifiers[i] <= 1f)
+                                {
+                                    tempBullet.bounciness += buffToAdd.modifiers[i];
+                                } 
+
+                                break;
+                            case Operator.Multiply:
+
+                                if (tempBullet.bounciness / buffToAdd.modifiers[i] >= 0f && tempBullet.bounciness / buffToAdd.modifiers[i] <= 1f)
+                                {
+                                    tempBullet.bounciness /= buffToAdd.modifiers[i];
+                                } 
+
+                                break;
+                            case Operator.Division:
+
+                                if (tempBullet.bounciness * buffToAdd.modifiers[i] >= 0f && tempBullet.bounciness * buffToAdd.modifiers[i] <= 1f)
+                                {
+                                    tempBullet.bounciness *= buffToAdd.modifiers[i];
+                                } 
+
+                                break;
+
+                        }
+                        break;
+                    case ModifierType.ShootUp:
+
+                        switch (buffToAdd.buffsModifiers[i])
+                        {
+
+                            case Operator.Addition:
+
+                                tempGun.upwardForce = tempGun.defaultUpwardForce;
+
+                                break;
+                            case Operator.Subtraction:
+
+                                tempGun.upwardForce = tempGun.defaultUpwardForce;
+
+                                break;
+                            case Operator.Multiply:
+
+                                tempGun.upwardForce = tempGun.defaultUpwardForce;
+
+                                break;
+                            case Operator.Division:
+
+                                tempGun.upwardForce = tempGun.defaultUpwardForce;
 
                                 break;
 

@@ -72,11 +72,16 @@ public class WaveSpawner : MonoBehaviour
     {
         currentWaveNumber++;
         canSpawn = true;
-        playerScript.playerHealth += 10;
 
-        playerScript.playerHealthPopUp.text = "+10";
+        if (playerScript.playerHealth <= playerScript.playerMaxHealth)
+        {
+            playerScript.playerHealth += 10;
+            playerScript.playerHealthPopUp.text = "+10";
 
-        Invoke("DelayPopUp", 2f);
+            playerScript.healthSlider.value = playerScript.playerHealth;
+
+            Invoke("DelayPopUp", 2f);
+        }
 
         //waveCompleted.Play();
     }

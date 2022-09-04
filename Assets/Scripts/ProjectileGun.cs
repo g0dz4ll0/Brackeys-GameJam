@@ -10,7 +10,7 @@ public class ProjectileGun : MonoBehaviour
     public CustomBullet bulletScript;
 
     //força da bala
-    public float shootForce, upwardForce;
+    public float shootForce, upwardForce, defaultShootForce, defaultUpwardForce;
 
     //Estatísticas da arma
     [Header("Stats da arma")]
@@ -45,6 +45,8 @@ public class ProjectileGun : MonoBehaviour
     private void Awake()
     {
         readyToShoot = true;
+        defaultShootForce = shootForce;
+        defaultUpwardForce = upwardForce;
     }
 
     private void Update()

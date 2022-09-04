@@ -7,14 +7,23 @@ public class PauseMenu : MonoBehaviour
 {
 
     public GameObject PauseMenu_Panel;
+    public bool isPaused;
 
     private void Update()
     {
 
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            if (PauseMenu_Panel.active) Time.timeScale = 1.0f;
-            else Time.timeScale = 0.0f;
+            if (PauseMenu_Panel.active)
+            {
+                isPaused = false;
+                Time.timeScale = 1.0f;
+            } 
+            else
+            {
+                isPaused = true;
+                Time.timeScale = 0.0f;
+            }
 
             PauseMenu_Panel.SetActive(!PauseMenu_Panel.activeSelf);
         }
@@ -24,17 +33,24 @@ public class PauseMenu : MonoBehaviour
 
     public void ContinueGame()
     {
-
-        PauseMenu_Panel.SetActive(false);
-        Time.timeScale = 1.0f;
-
+        if (isPaused)
+        {
+            PauseMenu_Panel.SetActive(false);
+            Time.timeScale = 1.0f;
+            isPaused = false;
+        }
+        else
+        {
+            PauseMenu_Panel.SetActive(true);
+            Time.timeScale = 0.0f;
+            isPaused = true;
+        }
     }
 
     public void MainMenu()
     {
-
+        isPaused = false;
         SceneManager.LoadScene("MainMenu");
-
     }
 
     public void ExitGame()

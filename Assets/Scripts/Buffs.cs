@@ -18,7 +18,7 @@ public class Buffs : ScriptableObject
 
 }
 
-public enum ModifierType { AttackSpeed , Damage , Defense, Bouncing }
+public enum ModifierType { AttackSpeed , Damage , Defense, Bouncing, Scale, Gravity, Bounciness, ShootUp }
 public enum Operator { Addition , Subtraction , Multiply , Division }
 public enum Element { None, Fire, Water, Shock, Earth }
 

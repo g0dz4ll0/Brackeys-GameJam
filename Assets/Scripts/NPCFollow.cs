@@ -56,12 +56,9 @@ public class NPCFollow : MonoBehaviour
 
         if(Vector3.Distance(playerScript.gameObject.transform.position, transform.position) > 20f)
         {
-
             transform.position = playerScript.gameObject.transform.position + new Vector3(3f, 0f, 3f);
-
+            StartNPC();
         }
-
-
     }
 
     public void StartNPC()

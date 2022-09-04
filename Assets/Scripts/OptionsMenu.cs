@@ -15,7 +15,7 @@ public class OptionsMenu : MonoBehaviour
     public Slider volumeSlider;
     //public TextMeshProUGUI volumeSliderText;
 
-    public TMP_Dropdown resolutionDropdown;
+    public Dropdown resolutionDropdown;
 
     public Toggle fullscreenToggle;
 

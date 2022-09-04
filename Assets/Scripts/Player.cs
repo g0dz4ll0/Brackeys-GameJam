@@ -14,7 +14,7 @@ public class Player : MonoBehaviour
     public Rigidbody rb;
     public Slider healthSlider;
     public GameObject GameOverPanel;
-    public TextMeshProUGUI playerHealthPopUp;
+    public Text playerHealthPopUp;
 
     //Movimento
     [Header("Movimento")]
@@ -41,6 +41,7 @@ public class Player : MonoBehaviour
 
     private void Start()
     {
+        playerMaxHealth = playerHealth;
 
         healthSlider.maxValue = playerHealth;
         healthSlider.value = playerHealth;
@@ -68,16 +69,20 @@ public class Player : MonoBehaviour
         //Movimento do jogador
         PlayerMovement();
 
-        healthRegenTimer += Time.deltaTime;
-
-        if(healthRegenTimer >= 10f)
+        if (playerHealth <= playerMaxHealth)
         {
-            playerHealthPopUp.text = "+1";
+            healthRegenTimer += Time.deltaTime;
 
-            Invoke("DelayPopUp", 2f);
+            if(healthRegenTimer >= 10f)
+            {
+                playerHealthPopUp.text = "+3";
 
-            playerHealth += 1;
-            healthRegenTimer = 0f;
+                Invoke("DelayPopUp", 2f);
+
+                playerHealth += 3;
+                healthRegenTimer = 0f;
+                healthSlider.value = playerHealth;
+            }   
         }
     }
 
@@ -141,6 +146,7 @@ public class Player : MonoBehaviour
     {
         Debug.Log("Morreste!");
         GameOverPanel.SetActive(true);
+        Time.timeScale = 0.0f;
         playerHealth = playerMaxHealth;
     }
 }

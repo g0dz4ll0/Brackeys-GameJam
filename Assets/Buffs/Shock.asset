@@ -17,5 +17,5 @@ MonoBehaviour:
   buffsTypes: 0000000001000000
   buffsModifiers: 0300000003000000
   modifiers:
-  - 4
+  - 1.5
   - 1.2

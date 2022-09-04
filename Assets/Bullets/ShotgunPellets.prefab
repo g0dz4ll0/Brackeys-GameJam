@@ -31,7 +31,7 @@ Transform:
   m_GameObject: {fileID: 2074461828003215704}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 1.2636633, y: -5.876438, z: -20.66425}
-  m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -96,7 +96,7 @@ SphereCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 0.03
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!54 &8889206805418851327
 Rigidbody:
@@ -131,12 +131,12 @@ MonoBehaviour:
   whatIsEnemies:
     serializedVersion: 2
     m_Bits: 64
-  bounciness: 0.8
-  useGravity: 1
+  bounciness: 0
+  useGravity: 0
   isEnemyBullet: 0
   explosionDamage: 25
   explosionRange: 1
-  maxCollisions: 3
+  maxCollisions: 2
   maxLifeTime: 4
   explodeOnTouch: 0
 --- !u!96 &6771750975058746577
